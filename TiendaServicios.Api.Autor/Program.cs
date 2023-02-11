@@ -29,6 +29,7 @@ builder.Services.AddDbContext<ContextoAutor>(options =>
 
 //Esta linea solo se agrega una vez, ya que se queda como interface de MediatR
 builder.Services.AddMediatR(typeof(Nuevo.Manejador).Assembly);
+builder.Services.AddAutoMapper(typeof(Consulta.Manejador));
 
 var app = builder.Build();
 
