@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using TiendaServicios.Api.Autor.Modelo;
 using TiendaServicios.Api.Autor.Persistencia;
 
@@ -12,6 +13,16 @@ namespace TiendaServicios.Api.Autor.Aplicacion
             public string Apellido { get; set; }
 
             public DateTime? FechaNacimiento { get; set; }
+        }
+
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>
+        {
+            public EjecutaValidacion()
+            {
+                RuleFor(x => x.Nombre).NotEmpty().WithMessage("El campo Nombre no puede estar vacio");
+                RuleFor(x => x.Apellido).NotEmpty().WithMessage("El campo Apellido no puede estar vacio");
+                RuleFor(x => x.FechaNacimiento).NotEmpty().WithMessage("El campo Fecha de Nacimiento no puede estar vacio");
+            }
         }
 
         public class Manejador : IRequestHandler<Ejecuta>

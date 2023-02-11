@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using TiendaServicios.Api.Autor.Aplicacion;
 using MediatR;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,10 @@ var Configuration = new ConfigurationBuilder()
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<Nuevo>();
 
 builder.Services.AddDbContext<ContextoAutor>(options =>
 {
