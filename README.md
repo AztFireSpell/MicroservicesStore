@@ -6,3 +6,10 @@ dotnet ef migrations add MigracionPostgresInicial --project TiendaServicios.Api.
 Esto envia el codigo a la base de datos (Segun el caso)
 dotnet ef database update --project TiendaServicios.Api."Autor"
 
+
+Para crear la base de datos en Mysql
+use carritocompra;
+
+Create table __EFMigrationsHistory(
+MigrationId varchar(150) not null primary key,
+ProductVersion varchar(32) not null);
