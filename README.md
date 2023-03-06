@@ -14,4 +14,5 @@ Create table __EFMigrationsHistory(
 MigrationId varchar(150) not null primary key,
 ProductVersion varchar(32) not null);
 
-Empezando con las pruebas de pipeline y jira
+Empezando con las pruebas de pipeline y jira, para ver informacion sincronizada
+
