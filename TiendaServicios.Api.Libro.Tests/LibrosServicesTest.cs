@@ -20,6 +20,7 @@ namespace TiendaServicios.Api.Libro.Tests
         private IEnumerable<LibreriaMaterial> ObtenerDataPrueba()
         {
             //configuramos la clase que le dara formato Entidad-libreriaMaterial Api Libro
+            //Este método es para llenar data de genfu
             A.Configure<LibreriaMaterial>()
                 .Fill(x => x.Titulo).AsArticleTitle()
                 .Fill(x => x.LibreriaMaterialId, () => { return Guid.NewGuid(); });
